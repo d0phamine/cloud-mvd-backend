@@ -22,9 +22,8 @@ export default class ExifsController {
           if (!filedata) {
             response.send("Ошибка при загрузке файла");
           } else {
-            //   console.log(filedata)
               await filedata.move(Application.tmpPath('uploads'),{
-                  name: (Math.random().toString().slice(2)) + filedata.clientName,
+                  name: (Math.random().toString().slice(2)) + filedata.clientName.replace(/[а-яА-Я ]/g, ""),
               })
               const file = new File
               file.fill({

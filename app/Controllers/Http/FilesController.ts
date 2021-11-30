@@ -1,10 +1,12 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-import File from 'App/Models/File'
+import Database from '@ioc:Adonis/Lucid/Database'
 
 export default class FilesController {
-    async index({response}){
-        const files = await File.all()
+    async index({response, request}){
+        const page = request.input('count')
+        const limit = 5
+        const files = await Database.from('files').paginate(page, limit)
         console.log(files)
 
 
