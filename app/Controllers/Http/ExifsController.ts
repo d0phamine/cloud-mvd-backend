@@ -35,7 +35,7 @@ export default class ExifsController {
               })
               file.save()
               console.log(filedata.filePath)
-              var data = await axios.post('http://127.0.0.1:5000/exif', {
+              var data = await axios.post('http://0.0.0.0:6000/exif', {
                 body: filedata.filePath,
                 fileName: filedata.fileName,
               }).then(result => response.send(JSON.parse((result.data + "").replace(/'(.+?)'/g, '"$1"').replace(/(\d+?): /g, '"a$1": ').replace(/\(([0-9., ]+)\)/g, '[$1]').replace(/: b' ', /g, ': "aaaaaaaaaaa", ').replace(/b".+?"/g, '"no Data"'))));
