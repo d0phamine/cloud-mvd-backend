@@ -40,7 +40,7 @@ Route.post('textan', async ({ request, response }) => {
     if (!textan) {
       response.send("Error text")
     } else {
-      var textToAnalyse = await axios.post('http://127.0.0.1:59478/textan', {
+      var textToAnalyse = await axios.post('http://127.0.0.1:57161/textan', {
         body: textan,
       }).then(result => response.send(result.data))
     }
